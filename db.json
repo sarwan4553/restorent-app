@@ -1,0 +1,33 @@
+{
+  "posts": [
+    {
+      "id": 2,
+      "name": "sarwan",
+      "email": "sarwank@gmail.com",
+      "mobile": "9988776655",
+      "address": "palla",
+      "services": "coffee"
+    },
+    {
+      "id": 3,
+      "name": "abhay",
+      "email": "abhay@gmail.com",
+      "mobile": "h88990077",
+      "address": "kkkss",
+      "services": "kkkslls ssss"
+    }
+  ],
+  "comments": [],
+  "signup": [
+    {
+      "name": "sarwan",
+      "email": "sarwan@gmail.com",
+      "mobile": "99008800",
+      "password": "1234",
+      "id": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

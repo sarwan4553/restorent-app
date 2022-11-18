@@ -1,0 +1,181 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li>
+                            <hr class="dropdown-divider" />
+                        </li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled">Disabled</a>
+                </li>
+            </ul>
+            <form class="d-flex" role="search">
+                <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" /> -->
+                <button class="btn btn-outline-success text-white" type="button" (click)="clickResto()">
+          Add Resetorent
+        </button>
+                <button class="btn btn-outline-dengar text-white ms-2" routerLink="/login" type="button">
+          logout
+        </button>
+            </form>
+        </div>
+    </div>
+</nav>
+<!-- Jumbotron -->
+<div class="p-5 text-center bg-image rounded-3 d-flex" style="
+    background-image: url('https://images.pexels.com/photos/776538/pexels-photo-776538.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    height: 400px;
+  ">
+    <div class="mask w-100" style="background-color: rgba(0, 0, 0, 0.6)">
+        <div class="d-flex justify-content-center align-items-center h-100">
+            <div class="text-white">
+                <h1 class="mb-3">Hotel Management</h1>
+                <h4 class="mb-3">
+                    A hotel is an establishment that provides paid lodging on a short-term basis.
+                </h4>
+                <a class="btn btn-outline-light btn-lg" href="#!" role="button">Call to action</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Jumbotron -->
+<table class="table table-striped mt-4">
+  <thead>
+    <tr>
+      <th scope="col">Resetorent ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Mobile</th>
+      <th scope="col">Address</th>
+      <th scope="col">Services</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of allRestaurantData">
+      <td scope="col">{{ data.id }}</td>
+      <td scope="col">{{ data.name }}</td>
+      <td scope="col">{{ data.email }}</td>
+      <td scope="col">{{ data.mobile }}</td>
+      <td scope="col">{{ data.address }}</td>
+      <td scope="col">{{ data.services }}</td>
+      <td scope="col">
+        <button class="btn btn-info" (click)="onEditResto(data)">edit</button>
+        <button class="btn btn-danger ms-2" (click)="getDelete(data)">
+          delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div
+  class="modal"
+  tabindex="-1"
+  role="dialog"
+  [ngStyle]="{ display: displayStyle }"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Add Details</h4>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formValue">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              placeholder="Enter Name..."
+              formControlName="name"
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="text"
+              class="form-control"
+              id="email"
+              placeholder="Enter email..."
+              formControlName="email"
+            />
+          </div>
+          <div class="form-group">
+            <label for="mobile">Mobile</label>
+            <input
+              type="text"
+              class="form-control"
+              id="mobile"
+              placeholder="Enter mobile..."
+              formControlName="mobile"
+            />
+          </div>
+          <div class="form-group">
+            <label for="address">Address</label>
+            <input
+              type="text"
+              class="form-control"
+              id="address"
+              placeholder="Enter address..."
+              formControlName="address"
+            />
+          </div>
+          <div class="form-group">
+            <label for="services">Services</label>
+            <input
+              type="text"
+              class="form-control"
+              id="services"
+              placeholder="Enter services..."
+              formControlName="services"
+            />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="closePopup()">
+          Close
+        </button>
+        <button
+          *ngIf="showAdd"
+          type="button"
+          class="btn btn-success"
+          (click)="addResto()"
+        >
+          Add Details
+        </button>
+        <button
+          *ngIf="showbtn"
+          type="button"
+          class="btn btn-primary"
+          (click)="updateResto()"
+        >
+          Update Details
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
